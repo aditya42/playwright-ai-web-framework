@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Mock Sauce Demo</title>
+</head>
+<body>
+  <main id="app">
+    <section id="login-screen">
+      <input id="user-name" placeholder="Username" />
+      <input id="password" placeholder="Password" type="password" />
+      <input id="login-button" type="submit" value="Login" onclick="login()" />
+      <div data-test="error" style="display:none"></div>
+    </section>
+  </main>
+  <script>
+    function login() {
+      const username = document.querySelector('#user-name').value;
+      const password = document.querySelector('#password').value;
+      const error = document.querySelector('[data-test="error"]');
+      if (username === 'standard_user' && password === 'secret_sauce') {
+        renderProducts();
+      } else {
+        error.textContent = 'Epic sadface: Username and password do not match any user in this service';
+        error.style.display = 'block';
+      }
+    }
+    function renderProducts() {
+      document.querySelector('#app').innerHTML = `
+        <section id="products-screen">
+          <span class="title">Products</span>
+          <a href="#cart" class="shopping_cart_link" onclick="renderCart(); return false;">
+            <span class="shopping_cart_badge" style="display:none">0</span>
+          </a>
+          <div class="inventory_item">
+            <div class="inventory_item_name">Sauce Labs Backpack</div>
+            <button data-test="add-to-cart-sauce-labs-backpack" onclick="addToCart()">Add to cart</button>
+          </div>
+        </section>`;
+    }
+    function addToCart() {
+      const badge = document.querySelector('.shopping_cart_badge');
+      badge.textContent = '1';
+      badge.style.display = 'inline';
+    }
+    function renderCart() {
+      document.querySelector('#app').innerHTML = `
+        <section id="cart-screen">
+          <span class="title">Your Cart</span>
+          <div class="cart_item">Sauce Labs Backpack</div>
+        </section>`;
+    }
+  </script>
+</body>
+</html>
