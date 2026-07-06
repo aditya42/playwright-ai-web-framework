@@ -1,6 +1,6 @@
 # Playwright AI Web Framework - Python
 
-GitHub-ready Python Playwright framework with Page Object Model, Pytest, AI helper agents, HTML reports, CI workflow, and sample web automation tests.
+Python Playwright framework with Page Object Model, Pytest, AI helper agents, HTML reports, CI workflow, and sample web automation tests.
 
 ## Tech Stack
 
@@ -139,14 +139,3 @@ The workflow runs on:
 - Manual trigger from GitHub Actions
 
 It installs dependencies, installs Chromium, runs Pytest, and uploads the HTML report artifact.
-
-## Recommended Git Commands
-
-```bash
-git init
-git add .
-git commit -m "Initial Python Playwright AI web framework"
-git branch -M main
-git remote add origin <your-repo-url>
-git push -u origin main
-```
